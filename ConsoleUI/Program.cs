@@ -33,7 +33,7 @@ namespace ConsoleUI
             CarManager carManager2 = new CarManager(new EfCarDal());
             List<Car> cars = new List<Car>
                 {
-                new Car{Id=4,CarName="Neww",Description="Yeni",ColorId=1,BranId=5,DailyPrice=1000,ModelYear=2010}
+                new Car{Id=4,CarName="Neww",Description="Yeni",ColorId=1,BrandId=5,DailyPrice=1000,ModelYear=2010}
                 };
             carManager2.Add(cars[1]);
         }
