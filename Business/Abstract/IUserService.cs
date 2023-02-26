@@ -11,6 +11,6 @@ namespace Business.Abstract
     {
         User GetByMail(string mail);
         List<OperationClaim> GetClaims(User user);
-        IResult Add(User user);
+        void Add(User user);
     }
 }
