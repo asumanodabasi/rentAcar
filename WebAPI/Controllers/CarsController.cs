@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
             _carService = carService;
         }
 
-        [HttpGet("getall")]
+        [HttpGet("getAll")]
         public IActionResult GetAll()
         {
             var result = _carService.GetAll();

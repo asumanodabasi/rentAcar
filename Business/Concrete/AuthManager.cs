@@ -22,26 +22,6 @@ namespace Business.Concrete
             _tokenHelper = tokenHelper;
         }
 
-        public IDataResult<AccessToken> CreateAccessToken(User user)
-        {
-            var claims = _userService.GetClaims(user);
-            var accessToken = _tokenHelper.CreateToken(user, claims);
-            return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
-        }
-
-        public IDataResult<User> Login(UserForLoginDto userForLoginDto)
-        {
-            var checkOut = _userService.GetByMail(userForLoginDto.Email);
-            if (checkOut == null)
-            {
-                return new ErrorDataResult<User>(checkOut, Messages.UserNotFound);
-            }
-            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, checkOut.PasswordHash, checkOut.PasswordSalt))
-            {
-                return new ErrorDataResult<User>(checkOut, Messages.PasswordError);
-            }
-            return new SuccessDataResult<User>(checkOut, Messages.SuccessfulLogin);
-        }
 
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
         {
@@ -60,13 +40,37 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(user, Messages.UserRegistered);
         }
 
+        public IDataResult<User> Login(UserForLoginDto userForLoginDto)
+        {
+            var checkOut = _userService.GetByMail(userForLoginDto.Email);
+            if (checkOut == null)
+            {
+                return new ErrorDataResult<User>(checkOut, Messages.UserNotFound);
+            }
+
+            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, checkOut.PasswordHash, checkOut.PasswordSalt))
+            {
+                return new ErrorDataResult<User>(Messages.PasswordError);
+            }
+            return new SuccessDataResult<User>(checkOut, Messages.SuccessfulLogin);
+        }
+
+        
         public IResult UserExists(string email)
         {
-            if (_userService.GetByMail(email) !=null)
+            if (_userService.GetByMail(email) != null)
             {
                 return new ErrorResult(Messages.UserAlreadyExists);
             }
             return new SuccessResult();
+        }
+
+
+        public IDataResult<AccessToken> CreateAccessToken(User user)
+        {
+            var claims = _userService.GetClaims(user);
+            var accessToken = _tokenHelper.CreateToken(user, claims);
+            return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }
     }
 }
