@@ -14,13 +14,16 @@ namespace Core.Utilities.Security.JWT
 {
     public class JwtHelper : ITokenHelper
     {
-        public IConfiguration Configuration { get; } //TokenOptions icin
+
+        public IConfiguration Configuration { get; } //Token options icin
         private TokenOptions _tokenOptions;
         private DateTime _accessTokenExpiration;
         public JwtHelper(IConfiguration configuration)
         {
             Configuration = configuration;
-            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            
+            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();     //json to class yapiyo
+
         }
 
         public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)

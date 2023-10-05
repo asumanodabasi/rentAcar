@@ -11,7 +11,7 @@ namespace DataAccess.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RentAcar;Trusted_Connection=true");   //Hangi veritabanına bağlanacağını buldu
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=rentAcar;Trusted_Connection=true");   //Hangi veritabanına bağlanacağını buldu
         }
 
         public DbSet<Car> Cars { get; set; }  //Hangi class hangi tabloya denk geliyo
