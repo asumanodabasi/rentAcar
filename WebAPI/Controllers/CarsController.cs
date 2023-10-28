@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
+    //burda api/controllerAdı/api ucu seklinde postmana istek atilir
+    
     [Route("api/[controller]")]
     [ApiController]
     public class CarsController : ControllerBase
@@ -17,6 +19,22 @@ namespace WebAPI.Controllers
         public CarsController(ICarService carService)
         {
             _carService = carService;
+        }
+
+
+        [HttpGet("getDetail")]
+        public IActionResult GetCarDetail()
+        {
+            var result=_carService.GetCarDetail();
+            if(result.Success==true) 
+            {
+                return Ok(result);
+            
+            }
+            else
+            {
+                return BadRequest(result);
+            }
         }
 
         [HttpGet("getAll")]

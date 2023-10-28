@@ -40,14 +40,14 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
-       [CacheAspect]
+       //[CacheAspect]
         public IDataResult <List<Car>> GetAll()
         {
             var result= _carDal.GetAll();
             return new SuccessDataResult<List<Car>>(result,Messages.CarListed);
         }
 
-        [PerformanceAspect(4)]
+       // [PerformanceAspect(4)]
         public IDataResult <List<CarDetailDto>> GetCarDetail()
         {
             return new SuccessDataResult<List<CarDetailDto>> (_carDal.GetCarDetails());

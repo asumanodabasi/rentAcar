@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace DataAccess.Concrete
+namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, RentAcarContext>, ICarDal
     {
@@ -22,7 +22,14 @@ namespace DataAccess.Concrete
                              join cl in context.Colors
                             on c.ColorId equals cl.ColorId
 
-                             select new CarDetailDto { CarName = c.CarName, BrandName = b.BrandName,ColorName=cl.ColorName, DailyPrice = c.DailyPrice};
+                             select new CarDetailDto {
+                                 CarName = c.CarName, 
+                                 BrandId = b.BrandName,
+                                 ColorId=cl.ColorName, 
+                                 DailyPrice = c.DailyPrice,
+                                 Description = c.Description,
+                                 ModelYear=c.ModelYear
+                             };
                 return result.ToList();
                   
                            }
