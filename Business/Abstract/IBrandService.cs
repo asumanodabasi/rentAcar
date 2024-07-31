@@ -8,6 +8,7 @@ namespace Business.Abstract
 {
    public interface IBrandService
     {
+        IDataResult<List<Brand>> GetAll();
         IDataResult<List<Brand>> GetCarsByBrandId(int brandId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Result;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace WebAPI.Controllers
 {
     //burda api/controllerAdı/api ucu seklinde postmana istek atilir
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class CarsController : ControllerBase
@@ -25,11 +26,11 @@ namespace WebAPI.Controllers
         [HttpGet("getDetail")]
         public IActionResult GetCarDetail()
         {
-            var result=_carService.GetCarDetail();
-            if(result.Success==true) 
+            var result = _carService.GetCarDetail();
+            if (result.Success == true)
             {
                 return Ok(result);
-            
+
             }
             else
             {
@@ -96,5 +97,41 @@ namespace WebAPI.Controllers
                 return BadRequest(result);
             }
         }
+
+        [HttpGet("getByBrand")]
+        public IActionResult GetByBrand(int brandId)
+        { 
+            var result=_carService.GetByBrandId(brandId);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            else
+            {
+                return BadRequest(result);
+            }
+
+
+        }
+        [HttpGet("getByColor")]
+        public IActionResult GetByColor(int colorId)
+        {
+            var result = _carService.GetByBrandId(colorId);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            else
+            {
+                return BadRequest(result);
+            }
+
+
+        }
+
     }
 }

@@ -19,6 +19,12 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
+        public IDataResult<List<Brand>> GetAll()
+        {
+            var result=_brandDal.GetAll();
+            return new SuccessDataResult<List<Brand>>(result);
+        }
+
         IDataResult<List<Brand>> IBrandService.GetCarsByBrandId(int brandId)
         {
             var result = _brandDal.GetAll(b => b.BrandId == brandId);
