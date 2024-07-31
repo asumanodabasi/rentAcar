@@ -76,3 +76,4 @@ C:\Users\asuma\Source\Repos\rentAcar\WebAPI\obj\Debug\net6.0\refint\WebAPI.dll
 C:\Users\asuma\Source\Repos\rentAcar\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 C:\Users\asuma\Source\Repos\rentAcar\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 C:\Users\asuma\Source\Repos\rentAcar\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+C:\Users\asuma\Source\Repos\rentAcar\WebAPI\obj\Debug\net6.0\WebAPI.sourcelink.json
