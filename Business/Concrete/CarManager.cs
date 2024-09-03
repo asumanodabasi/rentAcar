@@ -61,7 +61,7 @@ namespace Business.Concrete
         }
 
         // [PerformanceAspect(4)]
-        public IDataResult <List<CarDetailDto>> GetCarDetail()
+        public IDataResult <List<CarDetailDto>> GetCarDetail(int carImageId)
         {
             return new SuccessDataResult<List<CarDetailDto>> (_carDal.GetCarDetails());
         }

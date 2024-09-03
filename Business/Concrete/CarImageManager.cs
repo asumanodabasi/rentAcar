@@ -8,6 +8,8 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -46,6 +48,12 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetAll()
         {
+            //var path=_ımageDal.GetAll();
+            //if (path != null)
+            //{
+            //    return new ErrorDataResult<List<CarImage>>();
+            //}
+            //var combine = Path.Combine("/images", path.ToString());
             return new SuccessDataResult<List<CarImage>>(_ımageDal.GetAll());
         }
 

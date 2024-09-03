@@ -24,9 +24,9 @@ namespace WebAPI.Controllers
 
 
         [HttpGet("getDetail")]
-        public IActionResult GetCarDetail()
+        public IActionResult GetCarDetail(int carImageId)
         {
-            var result = _carService.GetCarDetail();
+            var result = _carService.GetCarDetail(carImageId);
             if (result.Success == true)
             {
                 return Ok(result);

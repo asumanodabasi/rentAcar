@@ -19,3 +19,4 @@ C:\Users\asuma\Source\Repos\rentAcar\Business\obj\Debug\net6.0\refint\Business.d
 C:\Users\asuma\Source\Repos\rentAcar\Business\obj\Debug\net6.0\Business.pdb
 C:\Users\asuma\Source\Repos\rentAcar\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
 C:\Users\asuma\Source\Repos\rentAcar\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\asuma\Source\Repos\rentAcar\Business\obj\Debug\net6.0\Business.sourcelink.json
